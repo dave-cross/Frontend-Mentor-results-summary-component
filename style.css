@@ -1,0 +1,290 @@
+:root {
+  /* Tier 1 */
+
+  /* Primary */
+  --red: hsl(0, 100%, 67%);
+  --yellow: hsl(39, 100%, 56%);
+  --teal: hsl(166, 100%, 37%);
+  --blue: hsl(234, 85%, 45%);
+
+  /* Gradients */
+  --light-slate-blue: hsl(252, 100%, 67%);
+  --light-royal-blue: hsl(241, 81%, 54%);
+  --violet-blue: hsla(256, 72%, 46%, 1);
+  --persian-blue: hsla(241, 72%, 46%, 0);
+
+  /* Neutral */
+  --white: hsl(0, 0%, 100%);
+  --pale-blue: hsl(221, 100%, 96%);
+  --light-lavender: hsl(241, 100%, 89%);
+  --dark-gray-blue: hsl(224, 30%, 27%);
+
+  --space-50: 4px;
+  --space-100: 8px;
+  --space-150: 12px;
+  --space-200: 16px;
+  --space-350: 28px;
+  --space-400: 36px;
+  --space-500: 40px;
+  --space-600: 48px;
+  --space-700: 56px;
+  --space-750: 60px;
+
+  /* Odd spacing */
+  --space-175: 14px;
+  --space-225: 18px;
+  --space-375: 30px;
+  --space-475: 38px;
+  --space-575: 46px;
+  --space-675: 54px;
+
+  /* Fonts */
+
+  --font-family-sans: "Hanken Grotesk", sans-serif;
+
+  --font-size-72: 72px;
+  --font-size-56: 56px;
+  --font-size-32: 32px;
+  --font-size-24: 24px;
+  --font-size-18: 18px;
+  --font-size-16: 16px;
+
+  /* Add responsive sizing */
+  /* @link https://utopia.fyi/clamp/calculator?a=736,375,56—72|24—32|16—24|16—18&p=font-size */
+  --font-size-16-18: clamp(
+    var(--font-size-16),
+    0.8702rem + 0.554vw,
+    var(--font-size-18)
+  );
+  --font-size-16-24: clamp(
+    var(--font-size-16),
+    0.4806rem + 2.2161vw,
+    var(--font-size-24)
+  );
+  --font-size-24-32: clamp(
+    var(--font-size-24),
+    0.9806rem + 2.2161vw,
+    var(--font-size-32)
+  );
+  --font-size-56-72: clamp(
+    var(--font-size-56),
+    2.4612rem + 4.4321vw,
+    var(--font-size-72)
+  );
+
+  --font-weight-500: 500;
+  --font-weight-700: 700;
+  --font-weight-800: 800;
+
+  --line-height-00: normal;
+  --line-height-10: 1;
+
+  /* Border Radius */
+
+  --radius-12: 12px;
+  --radius-32: 32px;
+
+  /* Tier 2 */
+
+  --color-background-default: var(--pale-blue);
+  --color-background-card: var(--white);
+  --color-background-button: var(--dark-gray-blue);
+
+  --color-content-default: var(--dark-gray-blue);
+  --color-content-red: var(--red);
+  --color-content-yellow: var(--yellow);
+  --color-content-teal: var(--teal);
+  --color-content-blue: var(--blue);
+  --color-content-knockout: var(--white);
+  --color-content-light: var(--light-lavender);
+  --color-content-light-50: hsl(from var(--light-lavender) h s l / 51.68%);
+
+  --color-gradient-background: linear-gradient(
+    to bottom,
+    var(--light-slate-blue),
+    var(--light-royal-blue)
+  );
+
+  --color-gradient-circle: linear-gradient(
+    to bottom,
+    var(--violet-blue),
+    var(--persian-blue)
+  );
+
+  --typography-heading-xl: var(--font-weight-800) var(--font-size-56-72) /
+    var(--line-height-10) var(--font-family-sans);
+  --typography-heading-l: var(--font-weight-700) var(--font-size-24-32)
+    var(--font-family-sans);
+  --typography-heading-m: var(--font-weight-700) var(--font-size-16-24)
+    var(--font-family-sans);
+  --typography-heading-body: var(--font-weight-500) var(--font-size-16-18)
+    var(--font-family-sans);
+  --typography-heading-body-bold: var(--font-weight-700) var(--font-size-16-18)
+    var(--font-family-sans);
+  --typography-heading-button: var(--font-weight-800) var(--font-size-18)
+    var(--font-family-sans);
+
+  /* Radius */
+  --radius-lg: var(--radius-32);
+  --radius-sm: var(--radius-12);
+
+  /* Shadows */
+  --shadow-default: 0 30px 60px hsl(224 82% 58% / 15%);
+
+  --max-width: 736px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--color-content-default);
+  background-color: var(--color-background-default);
+  font: var(--typography-heading-body);
+}
+
+strong {
+  font-weight: var(--font-weight-700);
+}
+
+h2 {
+  font: var(--typography-heading-m);
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  text-align: left;
+
+  border-collapse: separate;
+  border-spacing: 0 16px;
+  /* Because border-spacing adds top and bottom space TO margin, we need to adjust margin here. */
+  /* 16 + 8 = 24 */
+  /* margin-block: 8px; */
+
+  tr {
+    --_corner-radius: var(--radius-sm);
+    --_row-color: var(--row-color, grey);
+  }
+
+  th,
+  td {
+    font: var(--typography-heading-body);
+    padding: var(--space-225) var(--space-200);
+    background-color: hsl(from var(--_row-color) h s l / 0.05);
+  }
+
+  th {
+    border-radius: var(--_corner-radius) 0 0 var(--_corner-radius);
+    color: var(--_row-color);
+
+    p {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+  }
+
+  td {
+    border-radius: 0 var(--_corner-radius) var(--_corner-radius) 0;
+    /*       color: var(--dark-gray-blue); */
+    color: hsl(from var(--dark-gray-blue) h s l / 0.5);
+    font-weight: var(--font-bold);
+
+    strong {
+      color: var(--dark-gray-blue);
+      margin-right: 4px;
+    }
+  }
+
+  td:last-child {
+    text-align: right;
+  }
+}
+
+svg * {
+  stroke: var(--_row-color);
+}
+
+button {
+  cursor: pointer;
+  padding: var(--space-200);
+  font: var(--typography-heading-button);
+  border: 0;
+  background-color: var(--color-background-button);
+  color: var(--color-content-knockout);
+  border-radius: calc(Infinity * 1px);
+
+  &:hover,
+  &:focus {
+    background-image: var(--color-gradient-background);
+  }
+
+  &[data-fullwidth] {
+    width: 100%;
+  }
+}
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.icon {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.flow > * + * {
+  margin-block-start: var(--flow-space, var(--space-300));
+}
+
+.cluster {
+  display: flex;
+  flex-direction: var(--cluster-direction, row);
+  flex-wrap: wrap;
+  gap: var(--cluster-space, var(--space-300));
+  justify-content: var(--cluster-justify, start);
+  align-items: var(--cluster-align, center);
+}
+
+.switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--switcher-gutter, 0);
+  align-items: var(--switcher-vertical-alignment, stretch);
+}
+
+.switcher > * {
+  flex-grow: 1;
+  flex-basis: calc(
+    (var(--switcher-target-container-width, 600px) - 100%) * 999
+  );
+}
+
+.switcher[data-switcher-reverse] {
+  flex-direction: row-reverse;
+}
+
+.challenge-wrapper {
+  --_max-width: var(--max-width, 320px);
+  --_wrapper-padding: 0;
+
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: var(--_wrapper-padding);
+
+  @media (min-width: 500px) {
+    --_wrapper-padding: var(--space-200)
+      max(var(--space-200), calc(50% - var(--_max-width) / 2));
+  }
+}
