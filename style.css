@@ -244,14 +244,14 @@ button {
 }
 
 .flow > * + * {
-  margin-block-start: var(--flow-space, var(--space-300));
+  margin-block-start: var(--flow-space, var(--space-200));
 }
 
 .cluster {
   display: flex;
   flex-direction: var(--cluster-direction, row);
   flex-wrap: wrap;
-  gap: var(--cluster-space, var(--space-300));
+  gap: var(--cluster-space, var(--space-200));
   justify-content: var(--cluster-justify, start);
   align-items: var(--cluster-align, center);
 }
@@ -265,6 +265,7 @@ button {
 
 .switcher > * {
   flex-grow: 1;
+  flex-shrink: 1;
   flex-basis: calc(
     (var(--switcher-target-container-width, 600px) - 100%) * 999
   );
@@ -287,4 +288,70 @@ button {
     --_wrapper-padding: var(--space-200)
       max(var(--space-200), calc(50% - var(--_max-width) / 2));
   }
+}
+
+.results {
+  background-color: var(--color-background-card);
+  border-radius: var(--radius-lg);
+
+  display: flex;
+
+  > * {
+    flex-basis: 50%;
+  }
+}
+
+.results__summary {
+  --flow-space: var(--space-400);
+  background-image: var(--color-gradient-background);
+  color: var(--color-content-knockout);
+  border-radius: var(--radius-lg);
+  padding-inline: var(--space-675);
+  padding-block: var(--space-475) var(--space-575);
+  text-align: center;
+}
+
+.results__total {
+  background-image: var(--color-gradient-circle);
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  margin-inline: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font: var(--typography-heading-body-bold);
+  color: var(--color-content-light-50);
+
+  strong {
+    color: var(--color-content-knockout);
+    font: var(--typography-heading-xl);
+    margin-block-end: var(--space-50);
+  }
+
+  @media (min-width: 625px) {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.results__synopsis {
+  --flow-space: var(--space-375);
+  font: var(--typography-heading-body);
+  color: var(--color-content-light);
+
+  strong {
+    display: block;
+    color: var(--color-content-knockout);
+    font: var(--typography-heading-l);
+    margin-block-end: var(--space-175);
+  }
+}
+
+.results__table {
+  padding-inline: var(--space-500);
+  padding-block: var(--space-475) var(--space-575);
 }
