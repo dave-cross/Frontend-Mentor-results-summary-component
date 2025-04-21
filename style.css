@@ -23,6 +23,7 @@
   --space-100: 8px;
   --space-150: 12px;
   --space-200: 16px;
+  --space-300: 24px;
   --space-350: 28px;
   --space-400: 36px;
   --space-500: 40px;
@@ -173,7 +174,7 @@ table {
   th,
   td {
     font: var(--typography-heading-body);
-    padding: var(--space-225) var(--space-200);
+    padding: var(--space-200);
     background-color: hsl(from var(--_row-color) h s l / 0.05);
   }
 
@@ -182,15 +183,12 @@ table {
     color: var(--_row-color);
 
     p {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      --cluster-space: var(--space-150);
     }
   }
 
   td {
     border-radius: 0 var(--_corner-radius) var(--_corner-radius) 0;
-    /*       color: var(--dark-gray-blue); */
     color: hsl(from var(--dark-gray-blue) h s l / 0.5);
     font-weight: var(--font-bold);
 
@@ -202,6 +200,19 @@ table {
 
   td:last-child {
     text-align: right;
+  }
+
+  [data-type="reaction"] {
+    --_row-color: var(--color-content-red);
+  }
+  [data-type="memory"] {
+    --_row-color: var(--color-content-yellow);
+  }
+  [data-type="verbal"] {
+    --_row-color: var(--color-content-teal);
+  }
+  [data-type="visual"] {
+    --_row-color: var(--color-content-blue);
   }
 }
 
@@ -254,25 +265,6 @@ button {
   gap: var(--cluster-space, var(--space-200));
   justify-content: var(--cluster-justify, start);
   align-items: var(--cluster-align, center);
-}
-
-.switcher {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--switcher-gutter, 0);
-  align-items: var(--switcher-vertical-alignment, stretch);
-}
-
-.switcher > * {
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: calc(
-    (var(--switcher-target-container-width, 600px) - 100%) * 999
-  );
-}
-
-.switcher[data-switcher-reverse] {
-  flex-direction: row-reverse;
 }
 
 .challenge-wrapper {
@@ -352,6 +344,13 @@ button {
 }
 
 .results__table {
+  /* account for table spacing */
+  --flow-space: var(--space-150);
   padding-inline: var(--space-500);
   padding-block: var(--space-475) var(--space-575);
+
+  button {
+    /* account for table spacing */
+    --flow-space: var(--space-300);
+  }
 }
