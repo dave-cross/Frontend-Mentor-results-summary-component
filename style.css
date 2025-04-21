@@ -201,19 +201,18 @@ table {
   td:last-child {
     text-align: right;
   }
-
-  [data-type="reaction"] {
-    --_row-color: var(--color-content-red);
-  }
-  [data-type="memory"] {
-    --_row-color: var(--color-content-yellow);
-  }
-  [data-type="verbal"] {
-    --_row-color: var(--color-content-teal);
-  }
-  [data-type="visual"] {
-    --_row-color: var(--color-content-blue);
-  }
+}
+[data-type="reaction"] {
+  --_row-color: var(--color-content-red);
+}
+[data-type="memory"] {
+  --_row-color: var(--color-content-yellow);
+}
+[data-type="verbal"] {
+  --_row-color: var(--color-content-teal);
+}
+[data-type="visual"] {
+  --_row-color: var(--color-content-blue);
 }
 
 svg * {
@@ -285,6 +284,7 @@ button {
 .results {
   background-color: var(--color-background-card);
   border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-default);
 
   display: flex;
 
