@@ -179,12 +179,9 @@ table {
   }
 
   th {
+    --cluster-space: var(--space-150);
     border-radius: var(--_corner-radius) 0 0 var(--_corner-radius);
     color: var(--_row-color);
-
-    p {
-      --cluster-space: var(--space-150);
-    }
   }
 
   td {
@@ -202,21 +199,20 @@ table {
     text-align: right;
   }
 }
+svg * {
+  stroke: currentColor;
+}
 [data-type="reaction"] {
-  --_row-color: var(--color-content-red);
+  --row-color: var(--color-content-red);
 }
 [data-type="memory"] {
-  --_row-color: var(--color-content-yellow);
+  --row-color: var(--color-content-yellow);
 }
 [data-type="verbal"] {
-  --_row-color: var(--color-content-teal);
+  --row-color: var(--color-content-teal);
 }
 [data-type="visual"] {
-  --_row-color: var(--color-content-blue);
-}
-
-svg * {
-  stroke: var(--_row-color);
+  --row-color: var(--color-content-blue);
 }
 
 button {
